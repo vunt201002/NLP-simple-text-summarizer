@@ -11,14 +11,23 @@ def index():
 def analyze():
     if request.method == 'POST':
         rawtext = request.form['rawtext']
-        summary, original_text, len_original_text, len_summary, response_time, original_text_highlighted = summerizer(rawtext)
         
-    return render_template('summary.html', summary=summary, 
-                           original_text=original_text, 
-                           len_original_text=len_original_text, 
-                           len_summary=len_summary, 
-                           response_time=response_time, 
-                           original_text_highlighted=original_text_highlighted)
+        # Call the summarizer function
+        summary, original_text, len_original_text, len_summary, response_time, original_text_highlighted, summary_data = summerizer(rawtext)
+        
+        # Pass the summary and all intermediate data to the template
+        return render_template('summary.html', 
+                               summary=summary, 
+                               original_text=original_text, 
+                               len_original_text=len_original_text, 
+                               len_summary=len_summary, 
+                               response_time=response_time, 
+                               original_text_highlighted=original_text_highlighted,
+                               token=summary_data['token'], 
+                               word_frequencies=summary_data['word_frequencies'], 
+                               normalized_word_frequencies=summary_data['normalized_word_frequencies'], 
+                               sentence_scores=summary_data['sentence_scores'])
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/static/style.css/">
   </head>
   <body>
-    <div class="container">
+    <div class="container" style="padding: 64px 0;">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
               <h1 class="display-4 heading">Text Sumerization</h1>
@@ -22,7 +22,7 @@
           </div>
 
           <form action="/analyze" method="POST">
-            <textarea name="rawtext" class="form-control", rows=3 placeholder="Enter Your Text"></textarea>
+            <textarea name="rawtext" class="form-control", rows=10 placeholder="Enter Your Text"></textarea>
             <button class="btn btn-primary submit_btn" type="submit">Submit</button>
         </form>
 
