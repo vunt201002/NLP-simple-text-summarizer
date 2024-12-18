@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Home</title>
+    <title>Text Summarization</title>
 
     <link rel="stylesheet" href="/static/style.css/">
   </head>
@@ -16,38 +16,30 @@
     <div class="container">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-              <h1 class="display-4 heading">Text Sumerization</h1>
-              <p class="lead">Get the best summery for your text</p>
+              <h1 class="display-4 heading">Text Summarization</h1>
+              <p class="lead">Get the best summary for your text</p>
             </div>
         </div>
-    </div> 
-
-    <div class="container" style="display: flex; justify-content: space-around">
-        <p class="original_title col-sm-4">Original Text</p>
-        <p class="summary_title col-sm-4">Summary</p>
     </div>
-          
 
-    </div>
-        
-    <div class="container srt">
-        <p class="original_text col-sm-6">{{original_text}}</p>
-        <div class="container col-sm-6">
-            <p class="summary_text col-sm-6">{{summary}}</p>
-            <button class="btn btn-sucess" type="submit" style="margin-left: 15px">Words : {{len_summary}}</button>
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Original Text</h3>
+                <p class="original_text">{{ original_text }}</p>
+                <button class="btn btn-danger" type="button">Words: {{ len_original_text }}</button>
+            </div>
+            <div class="col-md-6">
+                <h3>Summary</h3>
+                <p class="summary_text">{{ summary }}</p>
+                <button class="btn btn-success" type="button">Words: {{ len_summary }}</button>
+            </div>
         </div>
-        
     </div>
 
-    <div class="container">
-        <button class="btn btn-denger" type="submit">Words : {{len_original_text}}</button>
-        
+    <div class="container mb-4">
+        <h4>Response Time: {{ response_time }} seconds</h4>
     </div>
-
-
-
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

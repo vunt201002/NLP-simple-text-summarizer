@@ -10,11 +10,11 @@ def index():
 @app.route('/analyze', methods=['GET', 'POST'])
 def analyze():
     if request.method == 'POST':
-        rawtext =request.form['rawtext']
-        summary, original_text, len_original_text, len_summary = summerizer(rawtext)
+        rawtext = request.form['rawtext']
+        summary, original_text, len_original_text, len_summary, response_time = summerizer(rawtext)
         
-    return render_template('summary.html', summary=summary, original_text= original_text, 
-                           len_original_text= len_original_text, len_summary= len_summary)
+    return render_template('summary.html', summary=summary, original_text=original_text, 
+                           len_original_text=len_original_text, len_summary=len_summary, response_time=response_time)
 
 if __name__ == "__main__":
     app.run(debug=True)
